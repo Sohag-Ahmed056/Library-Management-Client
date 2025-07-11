@@ -1,14 +1,14 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type { Book } from './types';
 
-// Common API response wrapper
+
 interface ApiResponse<T> {
   success: boolean;
   message: string;
   data: T;
 }
 
-// Borrow Summary Type
+
 interface BorrowSummary {
   book: {
     title: string;
@@ -17,12 +17,8 @@ interface BorrowSummary {
   totalQuantity: number;
 }
 
-// Borrow Request Type
-interface BorrowRequest {
-  book: string; // book _id
-  quantity: number;
-  dueDate: string;
-}
+
+
 
 export const bookApi = createApi({
   reducerPath: 'bookApi',
@@ -31,14 +27,14 @@ export const bookApi = createApi({
   }),
   tagTypes: ['Books', 'Borrow'],
   endpoints: (builder) => ({
-    // 1. Get all books
+   
     getBooks: builder.query<Book[], void>({
       query: () => 'books',
       transformResponse: (response: ApiResponse<Book[]>) => response.data,
       providesTags: ['Books'],
     }),
 
-    // 2. Get single book by ID
+   
     getBook: builder.query<Book, string>({
       query: (id) => `books/${id}`,
       transformResponse: (response: ApiResponse<Book>) => response.data,
@@ -81,9 +77,9 @@ export const bookApi = createApi({
     // 6. Borrow a book
     borrowBook: builder.mutation<any, { book: string; quantity: number; dueDate: string }>({
   query: (body) => ({
-    url: 'borrow', // ✅ Correct endpoint (NO bookId in URL)
+    url: 'borrow', 
     method: 'POST',
-    body,          // ✅ Full body with `book`, `quantity`, `dueDate`
+    body,          
   }),
   invalidatesTags: ['Books', 'Borrow'],
 }),
