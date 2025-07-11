@@ -3,7 +3,7 @@
 A **minimal library management system** built with **React**, **TypeScript**, **Redux Toolkit Query**, **Tailwind CSS**, and **shadcn/ui**. This is the client-side of a RESTful library app where users can manage books, borrow them, and view summaries—**no authentication required**.
 
 ### 🌐 Live Demo
-> Deployed on [Vercel](https://your-vercel-link.vercel.app](https://library-management-client-vosp.vercel.app/))  
+> [((https://library-management-client-vosp.vercel.app/)]
 
 
 ---
